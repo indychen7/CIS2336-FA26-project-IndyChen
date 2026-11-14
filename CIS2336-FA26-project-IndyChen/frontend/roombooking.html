@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Room Booking | UH Sugar Land Student Center</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="roombooking.html">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html">UH <span>Sugar Land</span> Student Center</a>
+      <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-menu">Menu</button>
+      <ul id="nav-menu"></ul>
+    </div>
+  </header>
+
+  <main id="main">
+    <h1>Room Booking</h1>
+    <p class="lead">Pick a room, pick a time. The system checks if it's open when you submit.</p>
+
+    <div class="room-info">
+      <table>
+        <caption class="hint" style="text-align:left;padding-bottom:.4rem">Rooms and capacity</caption>
+        <thead><tr><th>Room</th><th>Best for</th><th>Capacity</th></tr></thead>
+        <tbody>
+          <tr><td>Cougar Den</td><td>Group projects</td><td>8</td></tr>
+          <tr><td>Bayou Room</td><td>Quiet study</td><td>4</td></tr>
+          <tr><td>Skyline Suite</td><td>Presentations</td><td>12</td></tr>
+          <tr><td>Maple Nook</td><td>Small meetings</td><td>6</td></tr>
+          <tr><td>Innovation Lab</td><td>Workshops</td><td>10</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <form id="booking-form" class="form-card" novalidate>
+      <div class="field">
+        <label for="name">Full name</label>
+        <input type="text" id="name" name="name" autocomplete="name" required>
+        <div class="error" id="name-error" aria-live="polite"></div>
+      </div>
+
+      <div class="field">
+        <label for="email">UH email <span class="hint">(@cougarnet.uh.edu or @uh.edu)</span></label>
+        <input type="email" id="email" name="email" autocomplete="email" required>
+        <div class="error" id="email-error" aria-live="polite"></div>
+      </div>
+
+      <div class="field">
+        <label for="room">Room</label>
+        <select id="room" name="room" required>
+          <option value="">Select a room</option>
+          <option value="cougar-den" data-cap="8">Cougar Den (up to 8)</option>
+          <option value="bayou-room" data-cap="4">Bayou Room (up to 4)</option>
+          <option value="skyline-suite" data-cap="12">Skyline Suite (up to 12)</option>
+          <option value="maple-nook" data-cap="6">Maple Nook (up to 6)</option>
+          <option value="innovation-lab" data-cap="10">Innovation Lab (up to 10)</option>
+        </select>
+        <div class="error" id="room-error" aria-live="polite"></div>
+      </div>
+
+      <div class="field">
+        <label for="date">Date</label>
+        <input type="date" id="date" name="date" required>
+        <div class="error" id="date-error" aria-live="polite"></div>
+      </div>
+
+      <div class="form-row">
+        <div class="field">
+          <label for="start">Start time <span class="hint">(8 AM - 10 PM)</span></label>
+          <input type="time" id="start" name="start" min="08:00" max="22:00" step="900" required>
+          <div class="error" id="start-error" aria-live="polite"></div>
+        </div>
+        <div class="field">
+          <label for="end">End time</label>
+          <input type="time" id="end" name="end" min="08:00" max="22:00" step="900" required>
+          <div class="error" id="end-error" aria-live="polite"></div>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="guests">Number of people</label>
+        <input type="number" id="guests" name="guests" min="1" max="12" inputmode="numeric" required>
+        <div class="error" id="guests-error" aria-live="polite"></div>
+      </div>
+
+      <div class="field">
+        <label for="purpose">Purpose <span class="hint">(optional)</span></label>
+        <textarea id="purpose" name="purpose" rows="3" maxlength="200"></textarea>
+        <div class="error" id="purpose-error" aria-live="polite"></div>
+      </div>
+
+      <button type="submit" class="btn">Request booking</button>
+      <div id="form-status" class="form-status" role="status" aria-live="polite"></div>
+    </form>
+  </main>
+
+  <footer>&copy; 2026 UH Sugar Land Student Center &middot; CIS 2336 class project</footer>
+  <script src="script.js"></script>
+</body>
+</html>
